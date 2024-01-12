@@ -1,0 +1,39 @@
+https://stackoverflow.com/questions/67270975/using-shelve-and-sys-module-to-make-a-updatable-clipboard-program
+https://copyassignment.com/draw-netflix-logo-using-python-turtle/
+
+Here is an example of an updatable multi clipboard using Python 3 with the pyperclip, sys, and shelve modules:
+
+```
+import pyperclip
+import sys
+import shelve
+
+mcbShelf = shelve.open('mcb')
+
+# Save clipboard content
+if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
+    mcbShelf[sys.argv[2]] = pyperclip.paste()
+
+# Delete clipboard content
+elif len(sys.argv) == 3 and sys.argv[1].lower() == 'delete':
+    del mcbShelf[sys.argv[2]]
+
+# List all keys
+elif len(sys.argv) == 2 and sys.argv[1].lower() == 'list':
+    pyperclip.copy(str(list(mcbShelf.keys())))
+
+# Copy content to clipboard
+elif len(sys.argv) == 2 and sys.argv[1] in mcbShelf:
+    pyperclip.copy(mcbShelf[sys.argv[1]])
+
+mcbShelf.close()
+```
+
+This code can be run from the command line with the following arguments:
+
+- `save key`: Saves the current clipboard content under the given key.
+- `delete key`: Deletes the clipboard content associated with the given key.
+- `list`: Displays a list of all available keys.
+- `key`: Copies the content associated with the given key to the clipboard.
+
+The code works by opening a shelve file (in this example, named `mcb`) which allows multiple clipboard contents to be stored under different keys. When the program is run with one of the above commands, it checks the arguments provided and performs the corresponding action. If a key is provided, the content associated with it is either saved to or copied from the clipboard. If no arguments are provided, the program does nothing. Once the action is performed, the shelve file is closed.

@@ -1,0 +1,15 @@
+print("enter the student name:")
+name=input()
+print("enter the usn:")
+usn=int(input())
+print("enter the marks of maths,science,computer:")
+m1=int(input())
+m2=int(input())
+m3=int(input())
+total=m1+m2+m3
+percentage=(total/300)*100
+print("name of student:",name)
+print("USN of student:",usn)
+print("total marks of 3 subjects:",total)
+print("percentage of the student:",percentage)
+print("The end....")
