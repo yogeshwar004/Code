@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AreaPerimeter",
+            "request": "launch",
+            "mainClass": "AreaPerimeter",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "ThreeD",
+            "request": "launch",
+            "mainClass": "ThreeD",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "Powwithoutbuiltin",
             "request": "launch",
             "mainClass": "Powwithoutbuiltin",
