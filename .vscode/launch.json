@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Powwithoutbuiltin",
+            "request": "launch",
+            "mainClass": "Powwithoutbuiltin",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "P1",
             "request": "launch",
             "mainClass": "P1",
