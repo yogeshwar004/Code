@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "P2",
+            "request": "launch",
+            "mainClass": "practise.P2",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "Inheritance1",
+            "request": "launch",
+            "mainClass": "practise.Inheritance1",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "AreaPerimeter",
             "request": "launch",
             "mainClass": "AreaPerimeter",
