@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StaticExample",
+            "request": "launch",
+            "mainClass": "StaticExample",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "Demo1",
+            "request": "launch",
+            "mainClass": "Demo1",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "P2",
             "request": "launch",
             "mainClass": "practise.P2",
