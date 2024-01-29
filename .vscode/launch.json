@@ -6,6 +6,76 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Default",
+            "request": "launch",
+            "mainClass": "Default",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "P5",
+            "request": "launch",
+            "mainClass": "P5",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "P3",
+            "request": "launch",
+            "mainClass": "P3",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "AbstractFigure",
+            "request": "launch",
+            "mainClass": "AbstractFigure",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "FinalKeyword",
+            "request": "launch",
+            "mainClass": "FinalKeyword",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "InheritanceSetxy",
+            "request": "launch",
+            "mainClass": "InheritanceSetxy",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "NestedInner",
+            "request": "launch",
+            "mainClass": "NestedInner",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "CallByValue",
+            "request": "launch",
+            "mainClass": "CallByValue",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "RecursionFibo",
+            "request": "launch",
+            "mainClass": "RecursionFibo",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "Recursion",
+            "request": "launch",
+            "mainClass": "Recursion",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "StaticExample",
             "request": "launch",
             "mainClass": "StaticExample",

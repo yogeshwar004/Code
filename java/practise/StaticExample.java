@@ -13,7 +13,7 @@ public class StaticExample
     }
     public static void main(String[] args) {
         //StaticExample o=new StaticExample();
-        //o.nonstatic();
+        //4o.nonstatic();
         display();
     }
 }
