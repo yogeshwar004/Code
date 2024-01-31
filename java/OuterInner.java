@@ -6,6 +6,7 @@ class Outer
         private int y=20;
         void display()
         {
+            System.out.println("Inner Class");
             System.out.println("X="+x+"\tY="+y);
         }
     }
@@ -13,7 +14,7 @@ class Outer
     {
         Inner i=new Inner();
         i.display();
-
+        System.out.println("Outer Class");
         System.out.println("Y="+i.y);
     }
 }
