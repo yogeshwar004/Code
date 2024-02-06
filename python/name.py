@@ -1,8 +1,0 @@
-print("enter the name")
-name=input()
-print("my name is",name)
-length=len(name)
-print("the length of the name is",length)
-print("what is your age")
-age=int(input())
-print("your age will be", age+1 ,"next year")
