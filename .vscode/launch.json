@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Package1",
+            "request": "launch",
+            "mainClass": "Package1",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "addmatrix",
             "request": "launch",
             "mainClass": "practise.addmatrix",
