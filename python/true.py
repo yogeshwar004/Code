@@ -1,5 +1,0 @@
-print('Enter the value of a and b')
-a= int(input())
-b= int  (input())
-print("output is ",a+b==4 and (not a+b==5) and a*a== a+a)
-print('last bench boys are harami')

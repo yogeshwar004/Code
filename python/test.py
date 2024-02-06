@@ -1,5 +1,0 @@
-print("Hello world")
-print("Enter a and b")
-a=int(input())
-b=int(input())
-print("Enter a and b",a,b)
