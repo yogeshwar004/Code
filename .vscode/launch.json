@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ThreadD",
+            "request": "launch",
+            "mainClass": "ThreadD",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "Thread",
+            "request": "launch",
+            "mainClass": "Thread",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "BufferFileReader",
+            "request": "launch",
+            "mainClass": "BufferFileReader",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
+            "name": "ExceptionHandling",
+            "request": "launch",
+            "mainClass": "ExceptionHandling",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "Package1",
             "request": "launch",
             "mainClass": "Package1",
