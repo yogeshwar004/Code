@@ -10,7 +10,7 @@ public class Example
     protected int p;
     public void read()
     {
-        Scanner s=new Scanner(System.in)
+        Scanner s=new Scanner(System.in);
         System.out.println("Enter x,y,z,p respectively:");
         x=s.nextInt();
         y=s.nextInt();

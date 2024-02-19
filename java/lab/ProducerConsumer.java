@@ -67,8 +67,8 @@ class Consumer implements Runnable
 
     Consumer(Buffer b)
     {
-        this.b = b;
-        t = new Thread(this, "Consumer");
+        this.b =b;
+        t=new Thread(this,"Consumer");
         t.start();
     }
 

@@ -33,5 +33,6 @@ public class ExceptionHandling
         {
             System.out.println("This is finally block");
         }
+        s.close();
     }
 }

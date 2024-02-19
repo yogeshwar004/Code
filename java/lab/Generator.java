@@ -50,20 +50,50 @@ public class Generator implements Runnable
         {
             n=r.nextInt(100);
             System.out.println("Generated no="+n);
-            Square s=new Square(n);
-            Cube c=new Cube(n);
             try
             {
-                Thread.sleep(1000);
+                Square s=new Square(n);
+                Cube c=new Cube(n);
+                try
+                {
+                    Thread.sleep(1000);
+                }
+                catch(InterruptedException e)
+                {
+                    System.out.println(e);
+                }
             }
-            catch(InterruptedException e)
+            catch(Exception e)
             {
                 System.out.println(e);
             }
+        sc.close();
         }
     }
     public static void main(String[] args)
     {
-        Generator g=new Generator();    
+        try
+        {
+            Generator g;
+            g=new Generator();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
     }
 }
+/*
+Output:-
+Enter n:
+3
+Generated no=25
+Cube of 25 = 15625
+Square of 25 = 625
+Generated no=45
+Cube of 45 = 91125
+Square of 45 = 2025
+Generated no=9
+Cube of 9 = 729
+Square of 9 = 81
+*/

@@ -1,4 +1,4 @@
-package lab.program10;
+package lab.program10
 import program10.mypack.Example;
 public class Test
 {

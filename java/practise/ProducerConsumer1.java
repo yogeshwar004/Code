@@ -29,11 +29,11 @@ class Producer implements Runnable
             obj.put(++i);
     }
 }
-public class P1
+public class ProducerConsumer1
 {
     public static void main(String[] args)
     {
-        Buffer b=new Buffer(10);
+        Buffer b=new Buffer();
         Producer p=new Producer(b);
     }
 }
