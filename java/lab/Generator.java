@@ -27,7 +27,7 @@ class Cube implements Runnable
     }
     public void run()
     {
-        System.out.println("Cube of "+x+" is"+(x*x*x));
+        System.out.println("Cube of "+x+" = "+(x*x*x));
     }
 }
 public class Generator implements Runnable
