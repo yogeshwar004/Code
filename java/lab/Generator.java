@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 class Square implements Runnable
 {
@@ -42,7 +43,10 @@ public class Generator implements Runnable
     {
         int n;
         Random r=new Random();
-        for(int i=0;i<5;i++)
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter n:");
+        int m=sc.nextInt();
+        for(int i=0;i<m;i++)
         {
             n=r.nextInt(100);
             System.out.println("Generated no="+n);
