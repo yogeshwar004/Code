@@ -27,7 +27,8 @@ class Buffer
         {
             if (flag == 0)
                 wait();
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             System.out.println(e);
         }
