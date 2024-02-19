@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Generator",
+            "request": "launch",
+            "mainClass": "Generator",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "ThreadD",
             "request": "launch",
             "mainClass": "ThreadD",

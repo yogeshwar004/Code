@@ -22,17 +22,18 @@ class Producer implements Runnable
         t=new Thread(this,"Producer");
         t.start();    
     }
-    public class run()
+    public void run()
     {
         int i=0;
-        whiile(true)
-            obj.put(++x);
+        while(true)
+            obj.put(++i);
     }
 }
 public class P1
 {
     public static void main(String[] args)
     {
-            
+        Buffer b=new Buffer(10);
+        Producer p=new Producer(b);
     }
 }
