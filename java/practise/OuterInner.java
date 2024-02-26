@@ -6,7 +6,6 @@ class Outer
         private int y=20;
         void display()
         {
-            
             System.out.println("Inner Class\nx="+x+"\ty="+y);
         }
     }
