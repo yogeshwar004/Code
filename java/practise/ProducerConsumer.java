@@ -72,7 +72,7 @@ class Consumer implements Runnable
 
 public class ProducerConsumer {
 
-    @SuppressWarnings("usused");
+    @SuppressWarnings("usused")
     public static void main(String[] args) {
         
         try
