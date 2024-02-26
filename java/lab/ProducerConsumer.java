@@ -2,22 +2,22 @@
 
 class Buffer
 {
-    int i, flag = 0;
+    int i,flag=0;
 
     synchronized void put(int x)
     {
         try
         {
-            if (flag == 1)
+            if(flag==1)
                 wait();
         }
-        catch (Exception e)
+        catch(Exception e)
         {
             System.out.println(e);
         }
-        i = x;
-        System.out.println("Produced " + i);
-        flag = 1;
+        i=x;
+        System.out.println("Produced "+i);
+        flag=1;
         notify();
     }
 
@@ -25,15 +25,15 @@ class Buffer
     {
         try
         {
-            if (flag == 0)
+            if(flag==0)
                 wait();
         }
-        catch (Exception e)
+        catch(Exception e)
         {
             System.out.println(e);
         }
-        System.out.println("Consumed " + i);
-        flag = 0;
+        System.out.println("Consumed "+i);
+        flag=0;
         notify();
     }
 }
@@ -45,15 +45,15 @@ class Producer implements Runnable
 
     Producer(Buffer b)
     {
-        this.b = b;
-        t = new Thread(this, "Producer");
+        this.b=b;
+        t=new Thread(this,"Producer");
         t.start();
     }
 
     public void run()
     {
-        int i = 0;
-        while (true)
+        int i=0;
+        while(true)
         {
             b.put(i++);
         }
@@ -67,7 +67,7 @@ class Consumer implements Runnable
 
     Consumer(Buffer b)
     {
-        this.b =b;
+        this.b=b;
         t=new Thread(this,"Consumer");
         t.start();
     }
@@ -85,8 +85,8 @@ public class ProducerConsumer
 {
     public static void main(String args[])
     {
-        Buffer b = new Buffer();
-        Producer p = new Producer(b);
-        Consumer c = new Consumer(b);
+        Buffer b= new Buffer();
+        Producer p= new Producer(b);
+        Consumer c= new Consumer(b);
     }
 }
