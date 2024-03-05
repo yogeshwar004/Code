@@ -13,6 +13,6 @@ public class BoxLBH
         obj.b=20;
         obj.h=30;
         System.out.println("l="+obj.l+"\tb="+obj.b+"\th="+obj.h);
-    
+        System.out.println(obj.l+obj.b+obj.h);
     }
 }
