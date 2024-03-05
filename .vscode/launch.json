@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BoxLBH",
+            "request": "launch",
+            "mainClass": "BoxLBH",
+            "projectName": "Code_ca7811e5"
+        },
+        {
+            "type": "java",
             "name": "Generator",
             "request": "launch",
             "mainClass": "Generator",
