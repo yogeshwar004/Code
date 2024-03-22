@@ -4,7 +4,7 @@ void dfs(int s)
 {
     int i;
     visited[s]=1;
-    printf("%d\t",s);
+    printf("%d->",s);
     for(i=0;i<n;i++)
     {
         if(a[s][i]==1&&visited[i]==0)
@@ -20,7 +20,7 @@ void bfs(int s)
         printf("%d->",s);
         for(i=0;i<n;i++)
         {
-            if(a[s][i]&&visited[i]==0)
+            if(a[s][i]==1&&visited[i]==0)
             {
                 visited[i]=1;
                 q[++r]=i;
@@ -35,23 +35,19 @@ int main()
 {
     int i,j,s;
     printf("\nEnter the number of nodes:");
-    scanf("%d",&n);
+    scanf("%d",&n);//.
     printf("\nEnter the graph in adjacency matrix format:");
     for(i=0;i<n;i++)
-    {
         for(j=0;j<n;j++)
-        {
-            scanf("%d",&a[i][j]);
-        }
-    }
+            scanf("%d",&a[i][j]);//.
     for(i=0;i<n;i++)
-        visited[i]=0;
+        visited[i]=0;//.
     printf("\nEnter the starting nodes:");
     scanf("%d",&s);
     printf("DFS TRAVERSAL:\n");
     dfs(s);
     for(i=0;i<n;i++)
         visited[i]=0;
-    printf("BFS TRAVERSAL:\n");
+    printf("\nBFS TRAVERSAL:\n");
     bfs(s);
 }
