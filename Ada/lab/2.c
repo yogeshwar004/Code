@@ -1,5 +1,5 @@
 #include<stdio.h>
-int uniqueness(int  a[10],int n)
+int uniqueness(int  a[],int n)
 {
     for(int i=0;i<=n-2;i++)
     {
