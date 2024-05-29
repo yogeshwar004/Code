@@ -5,7 +5,7 @@ static int count=0;
 void Merge(int b[],int c[],int a[],int p,int q)
 {
     int i=0,j=0,k=0;
-    while(i<p&&i<q)
+    while(i<p&&j<q)
     {
         count++;
         if(b[i]<=c[j])
