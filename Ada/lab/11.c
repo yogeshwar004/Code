@@ -51,4 +51,6 @@ int main()
     printf("\nAfter Sorting Are");
     for(int i=0;i<n;i++)
         printf("\n%d",a[i]);
+    printf("\nBasic Operation Count=%d",count);
+    free(a);
 }
