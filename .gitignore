@@ -1,8 +1,12 @@
 **/*.class
 **/*.exe
 .vscode
-.build_log.htm
+.htm
 .uvproj
-.uvgui.Yogeshwar N
+.uvgui.
 .uvopt
 .bak
+.axf
+.d
+.lst
+.o
