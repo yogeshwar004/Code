@@ -1,7 +1,0 @@
- AREA ADDITION, CODE,READONLY
-ENTRY
-        MOV R0,#0X4
-        MOV R1,#0X6
-        ADD R2,R0,R1
-XS      B XS
-        END

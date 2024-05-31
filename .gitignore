@@ -1,3 +1,8 @@
 **/*.class
 **/*.exe
 .vscode
+.build_log.htm
+.uvproj
+.uvgui.Yogeshwar N
+.uvopt
+.bak

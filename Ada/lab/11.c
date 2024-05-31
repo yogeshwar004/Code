@@ -45,12 +45,12 @@ int main()
     for(int i=0;i<n;i++)
     {
         a[i]=rand()%1001;
-        printf("\n%d",a[i]);
+        //printf("\n%d",a[i]);
     }
     MergeSort(a,n);
     printf("\nAfter Sorting Are");
-    for(int i=0;i<n;i++)
-        printf("\n%d",a[i]);
+    //for(int i=0;i<n;i++)
+        //printf("\n%d",a[i]);
     printf("\nBasic Operation Count=%d",count);
     free(a);
 }
