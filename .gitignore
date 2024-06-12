@@ -3,10 +3,15 @@
 .vscode
 **/*.htm
 **/*.uvproj
-**/*.uvgui.
+**/*.uvgui
 **/*.uvopt
 **/*.bak
 **/*.axf
 **/*.d
 **/*.lst
 **/*.o
+**/*.lab
+**/*.lnp
+**/*.map
+**/*.dep
+**/*.Yogeshwar N
