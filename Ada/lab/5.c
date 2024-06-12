@@ -37,7 +37,7 @@ int main()
 {
     printf("\nEnter the number of Vertices:");
     scanf("%d",&n);
-    printf("\nEnter the cost matrix:");
+    printf("\nEnter the cost matrix:\n");
     for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
             scanf("%d",&cost[i][j]);
