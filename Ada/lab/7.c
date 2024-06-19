@@ -60,11 +60,11 @@ int main()
 void greedy_knapsack(int n,int m,float p[],float w[])
 {
     float profit=0,max,x;
-    int i,j,k,count;
-    for(count=0;count<n;count++)
+    int k;
+    for(int count=0;count<n;count++)
     {
         max=0;
-        for(i=0;i<n;i++)
+        for(int i=0;i<n;i++)
         {
             if(p[i]/w[i]>max)
             {
@@ -75,7 +75,7 @@ void greedy_knapsack(int n,int m,float p[],float w[])
         if(w[k]<=m)
         {
             printf("\nItem %d with fraction 1 is selected",k);
-            profit=profit+p[k];
+            profit+=p[k];
             m=m-w[k];
             p[k]=0;
         }
@@ -96,10 +96,8 @@ int main()
     printf("\nEnter the knapsack weight:");
     int m;
     scanf("%d",&m);
-    float *p;
-    p=(float*)malloc(n*sizeof(float));
-    float *w;
-    w=(float*)malloc(n*sizeof(float));
+    float *p=(float*)malloc(n*sizeof(float));
+    float *w=(float*)malloc(n*sizeof(float));
     printf("\nEnter the Weights:");
     for(int i=0;i<n;i++)
     {
