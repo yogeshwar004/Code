@@ -60,11 +60,11 @@ int main()
 void greedy_knapsack(int n,int m,float p[],float w[])
 {
     float profit=0,max,x;
-    int k;
-    for(int count=0;count<n;count++)
+    int i,k,count;
+    for(count=0;count<n;count++)
     {
         max=0;
-        for(int i=0;i<n;i++)
+        for(i=0;i<n;i++)
         {
             if(p[i]/w[i]>max)
             {
