@@ -1,6 +1,5 @@
 **/*.class
 **/*.exe
-.vscode
 **/*.htm
 **/*.uvproj
 **/*.uvgui

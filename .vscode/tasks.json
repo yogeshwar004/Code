@@ -1,0 +1,10 @@
+{
+    "label": "Build Java Project",
+    "type": "shell",
+    "command": "javac -d C:\\Users\\Yogeshwar N\\Documents\\Code\\java\\class ${file}",
+    "group": {
+        "kind": "build",
+        "isDefault": true
+    },
+    "problemMatcher": "$java"
+}
