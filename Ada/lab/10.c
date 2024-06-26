@@ -23,7 +23,7 @@ int partition(int a[],int l, int r)
             a[i]=a[j];
             a[j]=temp;
         }
-    }while(i<j);
+    }while(i<=j);
     temp=a[l];
     a[l]=a[j];
     a[j]=temp;

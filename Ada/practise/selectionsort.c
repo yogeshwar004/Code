@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-int count=0;
+static int count=0;
 void SelectionSort(int a[],int n)
 {
     int i,j,pos,temp;
@@ -23,10 +23,11 @@ void SelectionSort(int a[],int n)
 }
 int main()
 {
-    int *a,n,i;
-    printf("\nEnter the value of n\n");
+    int *a,n,i=0;
+    printf("\nEnter the value of n:");
     scanf("%d",&n);
     a=(int*)malloc(n*sizeof(int));
+    printf("\nThe array elements are\n");
     for(i=0;i<n;i++)
     {
         a[i]=rand()%1001;
