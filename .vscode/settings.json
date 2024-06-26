@@ -8,5 +8,5 @@
     "C_Cpp.errorSquiggles": "disabled",
     "java.debug.settings.onBuildFailureProceed": true,
     "problems.visibility": false,
-    "files.autoSave": "off"
+    "files.autoSave": "afterDelay"
 }
