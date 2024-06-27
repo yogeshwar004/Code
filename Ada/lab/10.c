@@ -47,11 +47,9 @@ int main()
     for(i=0;i<n;i++)
     {
         a[i]=rand()%10001;
-        //printf("%d\t",a[i]);
+        printf("%d\t",a[i]);
     }
     printf("\n");
-    /*for(i=0;i<n;i++)
-        printf("%d\t",a[i]);*/
     quicksort(a,0,n-1);
     printf("\nSorted Elements are\n");
     for(i=0;i<n;i++)
