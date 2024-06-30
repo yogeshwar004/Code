@@ -6,8 +6,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:12345@localhost/attendance_db'
 db = SQLAlchemy(app)
 
-import models  # Ensure models are imported after db is initialized
-
 # Define SQLAlchemy model (example)
 class AttendanceRecord(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -45,9 +43,9 @@ def edit_record(id):
     record = AttendanceRecord.query.get_or_404(id)
 
     if request.method == 'POST':
-        #record.student_name = request.form['student_name']
-        #record.date = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
-        #record.status = request.form['status']
+        record.student_name = request.form['student_name']
+        record.date = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+        record.status = request.form['status']
 
         db.session.commit()
         return redirect(url_for('attendance'))

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Update Data{% endblock %}
+{% block content %}
+<div class="mt-4">
+    <h1>Update Data</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="account_number">Account Number:</label>
+            <input type="text" class="form-control" id="account_number" name="account_number" value="{{ data.account_number }}" required>
+        </div>
+        <div class="form-group">
+            <label for="account_name">Account Name:</label>
+            <input type="text" class="form-control" id="account_name" name="account_name" value="{{ data.account_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="balance">Balance:</label>
+            <input type="number" class="form-control" id="balance" name="balance" value="{{ data

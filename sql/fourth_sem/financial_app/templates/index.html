@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Financial Data{% endblock %}
+{% block content %}
+<div class="mt-4">
+    <h1>Financial Data</h1>
+    <a href="{{ url_for('add') }}" class="btn btn-primary mb-3">Add Data</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Account Name</th>
+                <th>Balance</th>
+                <th>Account Type</th>
+                <th>Branch Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.account_number }}</td>
+                <td>{{ item.account_name }}</td>
+                <td>{{ item.balance }}</td>
+                <td>{{ item.account_type }}</td>
+                <td>{{ item.branch_name }}</td>
+                <td>
+                    <a href="{{ url_for('update', id=item.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ url_for('delete', id=item.id) }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
