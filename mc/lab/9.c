@@ -2,11 +2,11 @@
 #include<lpc214x.h>
 int main()
 {
-    unsigned long a[]={0x555555,0x444444,0x333333,0x222222};
+    unsigned long a[]={0x555555,0x444444,0x11111111,0x333333,0x222222};
     unsigned long temp,i,j;
-    for(i=0;i<3;i++)
+    for(i=0;i<4;i++)
     {
-        for(j=0;j<3;j++)
+        for(j=0;j<4;j++)
         {
             if(a[j]>a[j+1])
             {

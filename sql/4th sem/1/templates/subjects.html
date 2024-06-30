@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Subjects</h1>
+<form method="POST" action="{{ url_for('add_subject') }}">
+    <input type="text" name="name" placeholder="Subject Name" required>
+    <button type="submit">Add Subject</button>
+</form>
+<ul>
+    {% for subject in subjects %}
+        <li>{{ subject.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

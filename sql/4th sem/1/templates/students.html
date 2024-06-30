@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Students</h1>
+<form method="POST" action="{{ url_for('add_student') }}">
+    <input type="text" name="name" placeholder="Student Name" required>
+    <button type="submit">Add Student</button>
+</form>
+<ul>
+    {% for student in students %}
+        <li>{{ student.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
