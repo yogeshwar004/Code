@@ -60,9 +60,9 @@ def update(id):
             conn.commit()
         conn.close()
         return redirect(url_for('index'))
-
-    conn.close()
-    return render_template('update_data.html', data=data)
+    else:
+        conn.close()
+        return render_template('update_data.html', data=data)
 
 @app.route('/delete/<int:id>', methods=('POST',))
 def delete(id):
