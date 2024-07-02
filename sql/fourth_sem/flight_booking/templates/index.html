@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Bookings</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Flight Bookings</h1>
+        <a href="/add" class="btn btn-primary mb-3">Add Booking</a>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Passenger Name</th>
+                    <th>Flight Number</th>
+                    <th>Departure Date</th>
+                    <th>Departure Time</th>
+                    <th>Destination</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking[0] }}</td>
+                    <td>{{ booking[1] }}</td>
+                    <td>{{ booking[2] }}</td>
+                    <td>{{ booking[3] }}</td>
+                    <td>{{ booking[4] }}</td>
+                    <td>{{ booking[5] }}</td>
+                    <td>
+                        <a href="/update/{{ booking[0] }}" class="btn btn-warning btn-sm">Update</a>
+                        <a href="/delete/{{ booking[0] }}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
