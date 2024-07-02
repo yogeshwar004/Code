@@ -1,13 +1,24 @@
 from app import db
 
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+
+class Class(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
 
 class AttendanceRecord(db.Model):
-    __tablename__ = 'AttendanceRecords'
     id = db.Column(db.Integer, primary_key=True)
-    student_name = db.Column(db.String(100), nullable=False)
-    date = db.Column(db.Date, nullable=False)
-    status = db.Column(db.String(20), nullable=False)
+    student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
+    class_id = db.Column(db.Integer, db.ForeignKey('class.id'), nullable=False)
+    date = db.Column(db.String(10), nullable=False)
+    status = db.Column(db.String(10), nullable=False)
 
-    __table_args__ = {'extend_existing': True}
-    def __repr__(self):
-        return f"<AttendanceRecord(student_name='{self.student_name}', date='{self.date}', status='{self.status}')>"
+class Teacher(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+
+class Subject(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)

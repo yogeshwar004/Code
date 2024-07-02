@@ -1,34 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Attendance Records</title>
-</head>
-<body>
-    <h1>Attendance Records</h1>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Student Name</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-        {% for record in records %}
-        <tr>
-            <td>{{ record.id }}</td>
-            <td>{{ record.student_name }}</td>
-            <td>{{ record.date }}</td>
-            <td>{{ record.status }}</td>
-            <td>
-                <a href="{{ url_for('edit_record', id=record.id) }}">Edit</a> |
-                <form action="{{ url_for('delete_record', id=record.id) }}" method="post">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <p><a href="{{ url_for('index') }}">Back to Home</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Attendance Records</h1>
+<form method="POST" action="{{ url_for('add_attendance') }}">
+    <input type="number" name="student_id" placeholder="Student ID" required>
+    <input type="number" name="class_id" placeholder="Class ID" required>
+    <input type="date" name="date" placeholder="Date" required>
+    <input type="text" name="status" placeholder="Status" required>
+    <button type="submit">Add Attendance Record</button>
+</form>
+<ul>
+    {% for record in records %}
+        <li>Student ID: {{ record.student_id }}, Class ID: {{ record.class_id }}, Date: {{ record.date }}, Status: {{ record.status }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
