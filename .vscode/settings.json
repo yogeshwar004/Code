@@ -20,8 +20,8 @@
             "port": 3306,
             "driver": "MySQL",
             "name": "MySQL",
-            "database": "cambridge",
-            "username": "admin",
+            "database": "flight_booking",
+            "username": "root",
             "password": "12345"
         }
     ]
