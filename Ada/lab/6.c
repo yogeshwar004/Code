@@ -40,24 +40,25 @@ void DPKnapsack(int n,int m,int p[],int w[])
 }
 int main()
 {
-    int n,i,m;
+    int n,m,i;
     printf("\nEnter the number of items:");
     scanf("%d",&n);
-    printf("\nEnter the weights of %d items:",n);
-    int *w=(int*)malloc((n+1)*sizeof(int));
-    int *p=(int*)malloc((n+1)*sizeof(int));
-    for(i=1;i<n+1;i++)
+    printf("\nEnter the weights of %d items:\n",n);
+    int *w=(int*)malloc(n*sizeof(int));
+    for(i=1;i<=n;i++)
     {
         scanf("%d",&w[i]);
     }
-    printf("\nEnter the profits of %d items:",n);
-    for(i=1;i<n+1;i++)
+    printf("\nEnter the profits of %d items:\n",n);
+    int *p=(int*)malloc(n*sizeof(int));
+    for(i=1;i<=n;i++)
     {
         scanf("%d",&p[i]);
     }
-    printf("\nEnter Knapsack capacity:");
+    printf("\nEnter the Knapsack Weight:");
     scanf("%d",&m);
     DPKnapsack(n,m,p,w);
     free(p);
     free(w);
+    return 0;
 }
