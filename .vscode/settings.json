@@ -3,7 +3,9 @@
         "ostream": "cpp",
         "F.C": "cpp",
         "stdlib.h": "c",
-        "array": "c"
+        "array": "c",
+        "fibo.C": "cpp",
+        "*.asm": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "java.debug.settings.onBuildFailureProceed": true,
