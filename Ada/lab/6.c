@@ -44,16 +44,24 @@ int main()
     printf("\nEnter the number of items:");
     scanf("%d",&n);
     printf("\nEnter the weights of %d items:\n",n);
-    int *w=(int*)malloc(n*sizeof(int));
+    int *w=(int*)malloc((n+1)*sizeof(int));
     for(i=1;i<=n;i++)
     {
         scanf("%d",&w[i]);
     }
+    for(i=1;i<=n;i++)
+    {
+        printf("%d\t",w[i]);
+    }
     printf("\nEnter the profits of %d items:\n",n);
-    int *p=(int*)malloc(n*sizeof(int));
+    int *p=(int*)malloc((n+1)*sizeof(int));
     for(i=1;i<=n;i++)
     {
         scanf("%d",&p[i]);
+    }
+    for(i=1;i<=n;i++)
+    {
+        printf("%d\t",p[i]);
     }
     printf("\nEnter the Knapsack Weight:");
     scanf("%d",&m);
