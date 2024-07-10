@@ -1,2 +1,0 @@
-connect /as Sysdba
-
