@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+#include<lpc214x.h>
 int main()
 {
     char value='k';
