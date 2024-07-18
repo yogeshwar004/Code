@@ -1,0 +1,16 @@
+        AREA SUM,CODE,READONLY
+ENTRY
+START
+        MOV R0,#0
+        MOV R1,#1
+REPEAT
+        ADD R0,R0,R1
+        ADD R1,#1
+        CMP R1,#11
+        BNE REPEAT
+        LDR R4,=RESULT
+        STR R0,[R4]
+XSS      B XSS
+  AREA DATA2,DATA,READWRITE
+RESULT  DCD 0x40000000
+        END
