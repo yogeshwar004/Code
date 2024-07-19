@@ -1,37 +1,50 @@
-#include<stdio.h>
+#include<iostream>
+using namespace std;
 int min(int a,int b)
 {
-	return(a<b)?a:b;
+	return ((a<b)?a:b);
 }
- void floyds(int d[][10],int n)
- {
- 	int i,j,k;
- 	for(k=0;k<n;k++)
- 	{
- 		printf("\n d(%d)\n",(k+1));
- 		for(i=0;i<n;i++)
- 		{
- 			for(j=0;j<n;j++)
- 			{
- 				d[i][j]=min(d[i][j],d[i][k]+d[k][j]);
- 				printf("%d\t",d[i][j]);
-			 }
-			 printf("\n");
-		 }
-	 }
- }
- int main()
- {
- 	int i,j,n,d[10][10];
- 	printf("\n enter the size of weight matrix:");
- 	scanf("%d",&n);
- 	printf("\n enter the weight matrix:\n");
- 	for(i=0;i<n;i++)
- 	{
- 		for(j=0;j<n;j++)
- 		{
- 			scanf("%d",&d[i][j]);
-		 }
-	 }
-	 floyds(d,n);
- }
+void floyds(int **cost,int n)
+{
+	for(int k=0;k<n;k++)
+	{
+		cout << "D(" << (k+1) << ")=" << endl;
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				cost[i][j]=min(cost[i][j],cost[i][k]+cost[k][j]);
+				cout << cost[i][j] << "\t";
+			}
+			cout << endl;
+		}
+		cout << endl;
+	}
+}
+int main()
+{
+	int n=0;
+	cout << endl <<"Enter the weights of the matrix:";
+	cin >> n;
+	cout << endl <<"Enter the weight matrix:" << endl;
+	int **cost=new int*[n];
+	for (int i = 0; i < n; i++)
+	{
+		cost[i]=new int[n];
+	}
+	for(int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cin >> cost[i][j];
+		}
+		
+	}
+	floyds(cost,n);
+	for (int i = 0; i < n; i++)
+	{
+		delete[] cost[i];
+	}
+	
+	delete[] cost;
+}
