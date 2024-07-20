@@ -1,32 +1,47 @@
-#include<stdio.h>
-void warshalls(int r[][10],int n)
-{ int i,j,k;
-	for(k=0;k<n;k++)
-	{ 
-		printf("\n r(%d)=\n",(k+1));
-		for(i=0;i<n;i++)
+#include<iostream>
+using namespace std;
+int warshalls(int **d,int n)
+{
+	for (int k = 0; k < n; k++)
+	{
+		cout << "R(" << (k+1) << ")=" << endl;
+		for (int i = 0; i < n; i++)
 		{
-			for(j=0;j<n;j++)
+			for (int j = 0; j < n; j++)
 			{
-				r[i][j]=r[i][j]||(r[i][k]&&r[k][j]);
-				printf("%d\t",r[i][j]);
+				d[i][j]=d[i][j]|| (d[i][k] && d[k][j]);
+				cout << d[i][j] << "\t";
 			}
-			printf("\n");
+			cout << endl;
 		}
+		cout << endl;
 	}
+	return n;
 }
 int main()
 {
-	int i,j,n,r[10][10];
-	printf("\n enter the size of adjacency matrix:");
-	scanf("%d",&n);
-	printf("\n enter the adjacency matrix:\n");
-	for(i=0;i<n;i++)
+	cout << "Enter the number of nodes:";
+	int n;
+	cin >> n;
+	int **d=new int*[n];
+	for (int i = 0; i < n; i++)
 	{
-		for(j=0;j<n;j++)
+		d[i]=new int[n];
+	}
+	cout << "Enter the Matrix:" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
 		{
-			scanf("%d",&r[i][j]);
+			cin >> d[i][j];
 		}
 	}
-	warshalls(r,n);
+	int r=warshalls(d,n);
+	for (int i = 0; i < n; i++)
+	{
+		delete[] d[i];
+	}
+	delete[] d;
+	
+	return 0;
 }
