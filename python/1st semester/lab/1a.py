@@ -1,0 +1,10 @@
+name=input("Enter the name of the student:")
+usn=input("Enter the USN:")
+m1=int(input("Enter the marks 1:"))
+m2=int(input("Enter the marks 1:"))
+m3=int(input("Enter the marks 1:"))
+total=m1+m2+m3
+print('Name.....'+name)
+print('USN.....'+usn)
+print('Total.....',str(total))
+print('Percentage.....',str(total/3))
