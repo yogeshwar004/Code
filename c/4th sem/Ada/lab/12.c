@@ -15,10 +15,10 @@ int nQueens(int n)
     int x[10],k,count=0,i,j;
     k=1;
     x[k]=0;
-    while (k!=0)
+    while(k!=0)
     {
         x[k]++;
-        while (x[k]<=n&&place(x,k)==0)
+        while(x[k]<=n&&place(x,k)==0)
         {
             x[k]++;
         }
