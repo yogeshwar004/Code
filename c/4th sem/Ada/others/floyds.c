@@ -1,5 +1,10 @@
 #include<stdio.h>
-void floyds(int n,int cost[][10])
+#include<stdlib.h>
+int minimum(int a,int b)
+{
+    return((a<b)?a:b);
+}
+void floyds(int n,int **cost)
 {
     int i,j,k;
     for(k=0;k<n;k++)
@@ -9,14 +14,30 @@ void floyds(int n,int cost[][10])
         {
             for(j=0;j<n;j++)
             {
-                cost[i][j]=min(cost[i][j],cost[i][k]+cost[k][j]);
+                cost[i][j]=minimum(cost[i][j],cost[i][k]+cost[k][j]);
                 printf("%d\t",cost[i][j]);
             }
             printf("\n");
         }
     }
 }
-int min(int a,int b)
+int main()
 {
-    return((a<b)?a:b);
+    int n,i,j;
+    printf("\nEnter the number of nodes:");
+    scanf("%d",&n);
+    int **cost=(int**)malloc(n*sizeof(int*));
+    for(i=0;i<n;i++)
+    {
+        cost[i]=(int*)malloc(n*sizeof(int)); 
+    }
+    printf("\nEnter the cost matrix:\n");
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&cost[i][j]);
+        }
+    }
+    floyds(n,cost);
 }
