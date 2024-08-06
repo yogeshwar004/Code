@@ -35,7 +35,7 @@ int main()
     int n;
     scanf("%d",&n);
     int cost[10][10],s;
-    printf("\nEnter the cost matrix:");
+    printf("\nEnter the cost matrix:\n");
     for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
             scanf("%d",&cost[i][j]);
