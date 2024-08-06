@@ -1,25 +1,31 @@
 #include<stdio.h>
 
-void dijkstra(int n,int s, int cost[][10]){
+void dijkstra(int n,int s, int cost[][10])
+{
     int i,count,u,v,min,dis[10],visited[10];
 
-    for (i=0;i<n;i++){
+    for (i=0;i<n;i++)
+    {
         dis[i]=cost[s][i];
         visited[i]=0;
     }
     dis[s]=0;
     visited[s]=1;
-    for(count=0;count<n-1;count++){
+    for(count=0;count<n-1;count++)
+    {
         min=999;
-        for(i=0;i<n;i++){
-            if(visited[i]==0 && dis[i]<min ){
+        for(i=0;i<n;i++)
+        {
+            if(visited[i]==0 && dis[i]<min)
+            {
                 min=dis[i];
                 u=i;
             }
         }
         visited[u]=1;
 
-        for(v=0;v<n;v++){
+        for(v=0;v<n;v++)
+        {
             if(visited[v]==0 && cost[u][v]!=999 && dis[v]>(dis[u]+cost[u][v]))
             dis[v]=dis[u]+cost[u][v];
         }
