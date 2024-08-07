@@ -30,7 +30,7 @@ void sourceremoval()
         printf("%d\t",i);
         removed[i]=1;
         for(k=0;k<n;k++)
-            cost[i][k]=0;   
+            cost[i][k]=0;
     }    
 }
 int main()
