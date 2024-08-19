@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class AddMatrix
+public class Addmatrix
 {
 	public static void main(String args[])
 	{
