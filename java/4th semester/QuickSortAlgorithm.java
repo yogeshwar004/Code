@@ -50,8 +50,8 @@ public class QuickSortAlgorithm
         System.out.println("Before Sorting:\n");
         for(i=0;i<n;i++)
         {
-            a[i]=s.nextInt();//r.nextInt(1000);
-            //System.out.print(a[i]+"\t");
+            a[i]=r.nextInt(1000);
+            System.out.print(a[i]+"\t");
         }
         QuickSortAlgorithm q=new QuickSortAlgorithm();
         q.Quicksort(a,0,n-1);
@@ -60,5 +60,6 @@ public class QuickSortAlgorithm
         {
             System.out.print(a[i]+"\t");
         }
+        //s.close();
     }
 }
