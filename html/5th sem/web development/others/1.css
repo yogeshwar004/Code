@@ -1,0 +1,17 @@
+body {
+	background-color: yellow ;
+}
+p {
+	font-family: arial ;
+	color: red ;
+}
+p {
+	font-family: arial ;
+	color: blue ;
+}
+
+table {
+	border-color: green ;
+	border-weight:20;
+
+}
