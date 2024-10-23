@@ -62,3 +62,4 @@ $ping5 set class_ 5
 $ns at 0.01 "sendPingPacket"
 $ns at 10.0 "finish"
 $ns run
+hi hello
