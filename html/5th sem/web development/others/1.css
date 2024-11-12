@@ -1,17 +1,13 @@
 body {
-	background-color: yellow ;
+	background-image: url("img.png");
 }
-p {
-	font-family: arial ;
-	color: red ;
-}
+
 p {
 	font-family: arial ;
 	color: blue ;
+	border: 2;
 }
 
 table {
-	border-color: green ;
-	border-weight:20;
-
+	border-color: brown ;
 }

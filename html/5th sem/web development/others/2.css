@@ -1,0 +1,12 @@
+h1 {
+color: red;
+}
+h4 {
+color: blue;
+}
+body {
+    background-image: url(img.png);
+    border-style: solid;
+    text-align: center;
+    
+}
