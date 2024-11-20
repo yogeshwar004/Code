@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperature and Humidity Gauge</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+  }
+
+  .gauge {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    background: conic-gradient(
+      #f00 0 20%, 
+      #f90 20% 40%, 
+      #ff0 40% 60%, 
+      #0f0 60% 100%
+    );
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+  }
+
+  .gauge .needle {
+    width: 4px;
+    height: 100px;
+    background: #333;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .gauge .center {
+    width: 30px;
+    height: 30px;
+    background: #333;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+  }
+
+  .readings {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .readings p {
+    font-size: 1.5em;
+    margin: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="gauge">
+  <div class="needle" id="needle"></div>
+  <div class="center"></div>
+</div>
+
+<div class="readings">
+  <p>Temperature: <span id="temperature">24</span>°C</p>
+  <p>Humidity: <span id="humidity">50</span>%</p>
+</div>
+
+<script>
+  // Set temperature and humidity values
+  const temperature = dht.temperature; // Replace with real-time data as needed
+  const humidity = 50; // Replace with real-time data as needed
+
+  // Display temperature and humidity
+  document.getElementById('temperature').innerText = temperature;
+  document.getElementById('humidity').innerText = humidity;
+
+  // Calculate the rotation angle for the gauge needle based on temperature
+  // Assume the needle ranges from -90° to 90° for temperatures 0°C to 50°C
+  const maxTemp = 50;
+  const minTemp = 0;
+  const needleAngle = ((temperature - minTemp) / (maxTemp - minTemp)) * 180 - 90;
+
+  // Rotate the needle to the calculated angle
+  document.getElementById('needle').style.transform = `rotate(${needleAngle}deg)`;
+</script>
+
+</body>
+</html>

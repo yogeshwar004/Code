@@ -43,7 +43,6 @@ void setup() {
   Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
 }
-
 void loop() {
   WiFiClient client = server.available(); // Check for client requests
 
