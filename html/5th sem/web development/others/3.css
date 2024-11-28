@@ -1,13 +1,35 @@
 h1 {
     font: size 100px;
     color: brown;
-}
-table {
     text-align: center;
 }
+table {
+width:60%
+max-width:700px;
+height: 50%
+    text-align: center;
+margin: 0 auto;
+background-color: grey;
+}
 body {
-    background-color: pink;
+    background-color: white;
+font-family: Arial; sans-serif;
+border: 1px;
+text-align: center;
+
+
 }
 td {
-    color:blue;
+	text-align: left;
+width: 40%;
+    color:black;
+
+}
+input[type="text"]:hover, input[type="password"]:hover,select,textarea:hover {background-color: white;
+color: black;
+border: 1px
+}
+input[type="submit"]:hover,input[type="reset"]:hover {background-color: green;
+color: black;
+border: 1px;
 }
