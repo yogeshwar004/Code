@@ -1,0 +1,40 @@
+header, footer {
+	text-align: center;
+	background-color: orange;
+	color: white;
+	padding: 50px;
+	
+}
+nav {
+	background-color: lightblue;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}
+section {	
+	background-color: grey;
+	font-size: 14px;
+	float: left;
+	width: 60%;
+	height:60%
+}
+article {
+	background-color: white;
+	font-size: 14px;
+	color:black;
+}
+
+aside {
+	margin: 10 auto;
+	float: right;
+	width: 40%;
+	height: 60%;
+background-color: purple;
+}
+
+footer {
+	text-align: center;
+	background-color: orange;
+	color: white;
+	clear:both;
+}
