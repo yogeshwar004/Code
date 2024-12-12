@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Automation Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #0078d7;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+	#Red{
+		background-color: Red;
+		color: black;		
+	}
+	#Green{
+		background-color: Green;
+		color: black;		
+	}
+	#White {
+		background-color: White;
+		color: black;		
+	}
+	#Yellow{
+		background-color: Yellow;
+		color: black;		
+	}
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background-color: #0078d7;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        #sensorData {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Home Automation Dashboard</h1>
+    </header>
+    <div class="container">
+        <!-- LED Control Section -->
+        <div class="section">
+            <h2>Control LEDs</h2>
+            <button id="Red" onclick="controlLED('on1')">Turn On LED 1</button>
+            <button id="Red" onclick="controlLED('off1')">Turn Off LED 1</button><br>
+            <button id="Green" onclick="controlLED('on2')">Turn On LED 2</button>
+            <button id="Green" onclick="controlLED('off2')">Turn Off LED 2</button><br>
+	        <button id="White" onclick="controlLED('on3')">Turn On LED 3</button>
+            <button id="White" onclick="controlLED('off3')">Turn Off LED 3</button><br>
+            <button id="Yellow" onclick="controlLED('on4')">Turn On LED 4</button>
+            <button id="Yellow" onclick="controlLED('off4')">Turn Off LED 4</button>
+        </div>
+
+        <!-- Sensor Data Section -->
+        <div class="section">
+            <h2>Sensor Data</h2>
+            <button onclick="fetchSensorData()">Fetch Sensor Data</button>
+            <div id="sensorData">
+                <p>Temperature: <span id="temperature">N/A</span> °C</p>
+                <p>Humidity: <span id="humidity">N/A</span> %</p>
+                <p>Proximity: <span id="proximity">N/A</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const serverURL = 'http://192.168.181.220:3000'; // Change to your Node.js server IP and port
+
+        // Function to send LED control commands
+        function controlLED(command) {
+            fetch(`${serverURL}/api/led`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ command })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                alert('Failed to send command. See console for details.');
+                console.error('Error:', error);
+            });
+        }
+
+        // Function to fetch sensor data
+        function fetchSensorData() {
+            fetch(`${serverURL}/api/sensors`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('temperature').textContent = data.temperature ?? 'N/A';
+                document.getElementById('humidity').textContent = data.humidity ?? 'N/A';
+                document.getElementById('proximity').textContent = data.proximity ?? 'N/A';
+            })
+            .catch(error => {
+                alert('Failed to fetch sensor data. See console for details.');
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
+

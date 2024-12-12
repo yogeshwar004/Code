@@ -2,7 +2,7 @@
 #include <DHT_U.h>
 
 #include <DHT.h> // Include the DHT sensor library 
-#define DHTPIN 17      // Pin connected to DHT11 sensor (GPIO5) 
+#define DHTPIN 32      // Pin connected to DHT11 sensor (GPIO5) 
 #define DHTTYPE DHT11   // Specify DHT sensor type as DHT11 
  
 DHT dht(DHTPIN, DHTTYPE); // Create a DHT object with specified pin and type 
