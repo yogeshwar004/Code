@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Program 7</title>
+  <style>
+    body { font-family: Arial; margin: 20px; background: #f9f9f9; }
+    textarea, input { width: 100%; padding: 8px; margin-bottom: 10px; }
+    button { padding: 10px; background: #007bff; color: #fff; border: none; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .result { padding: 10px; background: #fff; border: 1px solid #ccc; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>JSON to Object</h2>
+  <textarea id="jsonText"></textarea>
+  <button onclick="convert('jsonText', 'jsonObject')">Convert</button>
+  <div id="jsonObject" class="result"></div>
+
+  <h2>JSON to Date</h2>
+  <input type="text" id="jsonDate">
+  <button onclick="convert('jsonDate', 'dateResult', true)">Convert</button>
+  <div id="dateResult" class="result"></div>
+
+  <h2>JSON to CSV</h2>
+  <textarea id="jsonCsvText"></textarea>
+  <button onclick="convertCsv()">Convert</button>
+  <div id="csvResult" class="result"></div>
+
+  <h2>Create Hash</h2>
+  <input type="text" id="stringInput">
+  <button onclick="createHash()">Hash</button>
+  <div id="hashResult" class="result"></div>
+
+  <script>
+    function convert(id, resultId, isDate=false) {
+      try {
+        const input = document.getElementById(id).value;
+        const result = isDate ? new Date(JSON.parse(input).date).toString() : JSON.stringify(JSON.parse(input), null, 2);
+        document.getElementById(resultId).textContent = isDate && isNaN(new Date(result)) ? 'Invalid Date' : result;
+      } catch { document.getElementById(resultId).textContent = 'Invalid JSON'; }
+    }
+    function convertCsv() {
+      try {
+        const json = JSON.parse(document.getElementById('jsonCsvText').value);
+        const headers = Object.keys(json[0]);
+        document.getElementById('csvResult').textContent = [headers.join(',')].concat(json.map(d => headers.map(h => d[h]).join(','))).join('\n');
+      } catch { document.getElementById('csvResult').textContent = 'Invalid JSON'; }
+    }
+    async function createHash() {
+      const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(document.getElementById('stringInput').value));
+      document.getElementById('hashResult').textContent = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+  </script>
+</body>
+</html>

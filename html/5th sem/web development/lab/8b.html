@@ -1,0 +1,35 @@
+8b
+<?php
+$c = new mysqli("localhost", "root", "", "student");
+if ($c->connect_error) die("Error");
+$r = $c->query("SELECT * FROM stud");
+$s = [];
+while ($ro = $r->fetch_assoc()) $s[] = $ro;
+usort($s, fn($a, $b) => $a['roll_no'] - $b['roll_no']);
+$c->close();
+?>
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>S</title>
+    <style>
+        table{width:100%;border-collapse:collapse}
+        th,td{padding:8px;border:1px solid #ddd}
+        th{background:#4CAF50;color:#fff}
+        tr:nth-child(even){background:#f2f2f2}
+    </style>
+</head>
+<body>
+    <h2>S</h2>
+    <table>
+        <tr>
+            <?php foreach(array_keys($s[0]) as $k) echo "<th>$k</th>"; ?>
+        </tr>
+        <?php foreach($s as $st): ?>
+        <tr>
+            <?php foreach(array_keys($s[0]) as $k) echo "<td>{$st[$k]}</td>"; ?>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+</html>
