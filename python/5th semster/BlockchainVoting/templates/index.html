@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blockchain Voting System</title>
+</head>
+<body>
+    <h2>Vote for Your Candidate</h2>
+    <form id="voteForm">
+        <label>Voter ID:</label>
+        <input type="text" id="voter_id" required><br><br>
+        
+        <label>Vote:</label>
+        <input type="text" id="vote" required><br><br>
+
+        <button type="submit">Submit Vote</button>
+    </form>
+
+    <h3>Blockchain Data</h3>
+    <pre id="blockchain"></pre>
+
+    <script>
+        document.getElementById("voteForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let voter_id = document.getElementById("voter_id").value;
+            let vote = document.getElementById("vote").value;
+
+            fetch("/vote", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ voter_id, vote })
+            }).then(res => res.json())
+              .then(data => {
+                alert(data.message);
+                loadBlockchain();
+            });
+        });
+
+        function loadBlockchain() {
+            fetch("/get_chain")
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("blockchain").innerText = JSON.stringify(data.chain, null, 2);
+                });
+        }
+
+        loadBlockchain();
+    </script>
+</body>
+</html>
