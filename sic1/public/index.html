@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Automation Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0078d7;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #Red { background-color: red; }
+    #Green { background-color: green; }
+    #White { background-color: gray; }
+    #Yellow { background-color: goldenrod; }
+
+    #sensorData, .ledStatusBox {
+      background: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .ledStatus {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏠 Home Automation Dashboard</h1>
+  </header>
+
+  <div class="container">
+    <!-- LED Control -->
+    <div class="section">
+      <h2>💡 Control LEDs</h2>
+
+      <div class="ledStatusBox">
+        <div>
+          <button id="Red" onclick="controlLED('on1', 'led1')">Turn On LED </button>
+          <button id="Red" onclick="controlLED('off1', 'led1')">Turn Off LED </button>
+          <span class="ledStatus" id="led1">Status: OFF</span>
+        </div>
+        <div>
+          <button id="Green" onclick="controlLED('on2', 'led2')">Turn On LED </button>
+          <button id="Green" onclick="controlLED('off2', 'led2')">Turn Off LED </button>
+          <span class="ledStatus" id="led2">Status: OFF</span>
+        </div>
+        <div>
+          <button id="White" onclick="controlLED('on3', 'led3')">Turn On LED </button>
+          <button id="White" onclick="controlLED('off3', 'led3')">Turn Off LED </button>
+          <span class="ledStatus" id="led3">Status: OFF</span>
+        </div>
+        <div>
+          <button id="Yellow" onclick="controlLED('on4', 'led4')">Turn On LED </button>
+          <button id="Yellow" onclick="controlLED('off4', 'led4')">Turn Off LED </button>
+          <span class="ledStatus" id="led4">Status: OFF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sensor Data -->
+    <div class="section">
+      <h2>📊 Sensor Data</h2>
+      <div id="sensorData">
+        <p>🌡 Temperature: <span id="temperature">N/A</span> °C</p>
+        <p>💧 Humidity: <span id="humidity">N/A</span> %</p>
+        <p>🚶 Proximity: <span id="proximity">N/A</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const serverURL = window.location.origin;
+
+    // Send LED command and update status
+    function controlLED(command, ledId) {
+      fetch(`${serverURL}/api/led`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ command })
+      })
+      .then(res => res.json())
+      .then(data => {
+        const statusSpan = document.getElementById(ledId);
+        if (command.includes('on')) {
+          statusSpan.textContent = 'Status: ON';
+        } else {
+          statusSpan.textContent = 'Status: OFF';
+        }
+      })
+      .catch(err => {
+        alert('Failed to send LED command. Check console.');
+        console.error(err);
+      });
+    }
+
+    // Fetch sensor data
+    function fetchSensorData() {
+      fetch(`${serverURL}/api/sensors`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('temperature').textContent = data.temperature ?? 'N/A';
+          document.getElementById('humidity').textContent = data.humidity ?? 'N/A';
+          document.getElementById('proximity').textContent = data.proximity ?? 'N/A';
+        })
+        .catch(err => {
+          console.error('Error fetching sensor data:', err);
+        });
+    }
+
+    // Auto fetch sensor data every 5 seconds
+    setInterval(fetchSensorData, 5000);
+    window.onload = fetchSensorData;
+  </script>
+</body>
+</html>
