@@ -1,11 +1,12 @@
 int gpio=26;
 int gpio1=25;
-int gpio2=5;
+int gpio2=32;
+int gpio3=27;
 void setup() {
   pinMode(gpio,OUTPUT);
   pinMode(gpio1,OUTPUT);
   pinMode(gpio2,OUTPUT);
-
+pinMode(gpio3,OUTPUT);
 
 }
 
@@ -23,6 +24,9 @@ digitalWrite(gpio2, HIGH);
 delay(500);
 digitalWrite(gpio2, LOW);
 delay(500);
-
+digitalWrite(gpio3, HIGH);
+delay(500);
+digitalWrite(gpio3, LOW);
+delay(500);
 }
 

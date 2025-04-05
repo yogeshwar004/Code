@@ -8,8 +8,8 @@
 DHT dht(DHTPIN, DHTTYPE); // Create a DHT object with specified pin and type 
 
 // Wi-Fi credentials
-const char* ssid = "Pixel 8a";
-const char* password = "87654321";
+const char* ssid = "SIC_5G";
+const char* password = "siccit@123";
 
 // MQTT broker details
 const char* mqtt_server = "mqtt.platinumrobotics.com";
