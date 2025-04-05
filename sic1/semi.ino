@@ -26,7 +26,7 @@ const int blueLED = 32;
 
 // Motion Sensor
 const int motionSensor = 33;
-int motionState = LOW; 
+int motionState = LOW;
 
 // DHT Sensor
 #define DHTPIN 0
@@ -40,12 +40,12 @@ PubSubClient client(espClient);
 // Wi-Fi connection function
 void setup_wifi() {
   Serial.println("Resetting and connecting to WiFi...");
-  
-  WiFi.disconnect(true, true);     // Clear old credentials
+
+  WiFi.disconnect(true, true);  // Clear old credentials
   delay(1000);
 
-  WiFi.mode(WIFI_STA);            // Set to Station mode
-  WiFi.begin(ssid, password);     // Connect to hotspot
+  WiFi.mode(WIFI_STA);         // Set to Station mode
+  WiFi.begin(ssid, password);  // Connect to hotspot
 
   int attempts = 0;
   while (WiFi.status() != WL_CONNECTED && attempts < 20) {
@@ -56,9 +56,9 @@ void setup_wifi() {
 
   if (WiFi.status() == WL_CONNECTED) {
     Serial.println("\n✅ WiFi connected!");
-    digitalWrite(redLED,HIGH);
+    digitalWrite(redLED, HIGH);
     delay(2000);
-    digitalWrite(redLED,LOW);
+    digitalWrite(redLED, LOW);
     Serial.print("📶 IP Address: ");
     Serial.println(WiFi.localIP());
   } else {
@@ -127,7 +127,7 @@ void reconnect() {
 // Motion Detection
 void checkMotion() {
   int val = digitalRead(motionSensor);
-  if (val == HIGH) {  
+  if (val == HIGH) {
     delay(100);
     if (motionState == LOW) {
       Serial.println("Motion detected!");
