@@ -1,13 +1,13 @@
-const int Bled=1;
-const int Gled=2;
-int v=10000;
+const int Bled=27;
+const int Gled=26;
+int v=1000;
 void setup() {
   pinMode(Gled,OUTPUT);
   pinMode(Bled,OUTPUT);
 
   Serial.begin(9600);
   delay(v);
-  Serial.println("Type 'X','G','Y' to turn on corresponding LED.");
+  Serial.println("Type 'G','B','X' to turn on corresponding LED.");
   Serial.println("Type '0' to turn off all LEDs");
 }
 
