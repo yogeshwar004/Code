@@ -130,14 +130,14 @@ void checkMotion() {
   if (val == HIGH) {
     delay(100);
     if (motionState == LOW) {
-      Serial.println("Motion detected!");
+      Serial.println("**********Motion detected!");
       client.publish(motionTopic, "Motion detected!");
       motionState = HIGH;
     }
   } else {
     delay(200);
     if (motionState == HIGH) {
-      Serial.println("Motion stopped!");
+      Serial.println("**********Motion stopped!");
       client.publish(motionTopic, "Motion stopped!");
       motionState = LOW;
     }
