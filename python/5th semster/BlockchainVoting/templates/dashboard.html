@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Blockchain Voting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #4fc3f7;
+            --background-color: #f5f7fa;
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --error-color: #e74c3c;
+            --success-color: #2ecc71;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h2 {
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .logout-btn {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card {
+            background-color: var(--card-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .vote-form {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        select:focus, input[type="text"]:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .results-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .candidate-card {
+            background-color: var(--card-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .candidate-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .vote-count {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .blockchain-container {
+            margin-top: 30px;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 14px;
+            border: 1px solid #e9ecef;
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            .logout-btn {
+                margin-top: 10px;
+                align-self: flex-end;
+            }
+
+            .results-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome, {{ username }}!</h2>
+        <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="container">
+        <div class="card vote-form">
+            <h3 class="card-title">Cast Your Vote</h3>
+            <form id="voteForm">
+                <div class="form-group">
+                    <label for="vote">Select Candidate:</label>
+                    <select id="vote" required>
+                        <option value="">-- Select a candidate --</option>
+                        <option value="Candidate_A">Candidate A</option>
+                        <option value="Candidate_B">Candidate B</option>
+                        <option value="Candidate_C">Candidate C</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Submit Vote</button>
+            </form>
+            <div id="voteMessage" style="display: none;"></div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Current Results</h3>
+            <div class="results-container" id="candidateResults">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+
+        <div class="card blockchain-container">
+            <h3 class="card-title">Blockchain Data</h3>
+            <pre id="blockchain">Loading blockchain data...</pre>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("voteForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const vote = document.getElementById("vote").value;
+            const voteMessage = document.getElementById("voteMessage");
+            
+            fetch("/vote", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ vote })
+            })
+            .then(res => res.json())
+            .then(data => {
+                voteMessage.style.display = "block";
+                if (data.message.includes('failed')) {
+                    voteMessage.className = "alert alert-error";
+                    voteMessage.textContent = "Error: " + data.message;
+                } else {
+                    voteMessage.className = "alert alert-success";
+                    voteMessage.textContent = data.message;
+                    document.getElementById("vote").value = "";
+                    loadData();
+                }
+            })
+            .catch(error => {
+                voteMessage.style.display = "block";
+                voteMessage.className = "alert alert-error";
+                voteMessage.textContent = "Network error: Please try again later.";
+            });
+        });
+
+        function loadData() {
+            fetch("/get_chain")
+                .then(res => res.json())
+                .then(data => {
+                    // Display blockchain
+                    document.getElementById("blockchain").innerText = 
+                        JSON.stringify(data.chain, null, 2);
+                    
+                    // Display results
+                    const resultsDiv = document.getElementById("candidateResults");
+                    resultsDiv.innerHTML = '';
+                    
+                    for (const [candidate, votes] of Object.entries(data.candidate_votes)) {
+                        const card = document.createElement("div");
+                        card.className = "candidate-card";
+                        card.innerHTML = `
+                            <div class="candidate-name">${candidate}</div>
+                            <div class="vote-count">${votes} votes</div>
+                        `;
+                        resultsDiv.appendChild(card);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error loading data:", error);
+                });
+        }
+
+        // Load data initially
+        loadData();
+        
+        // Refresh data every 30 seconds
+        setInterval(loadData, 30000);
+    </script>
+</body>
+</html>

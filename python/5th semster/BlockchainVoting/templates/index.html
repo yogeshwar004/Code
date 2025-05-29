@@ -1,49 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blockchain Voting System</title>
+    <title>Login - Blockchain Voting</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { background: #4CAF50; color: white; padding: 10px; border: none; width: 100%; }
+        .error { color: red; }
+        .register-link { margin-top: 15px; text-align: center; }
+    </style>
 </head>
 <body>
-    <h2>Vote for Your Candidate</h2>
-    <form id="voteForm">
-        <label>Voter ID:</label>
-        <input type="text" id="voter_id" required><br><br>
-        
-        <label>Vote:</label>
-        <input type="text" id="vote" required><br><br>
-
-        <button type="submit">Submit Vote</button>
+    <h2>Login</h2>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form action="/login" method="POST">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" name="username" required>
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
     </form>
-
-    <h3>Blockchain Data</h3>
-    <pre id="blockchain"></pre>
-
-    <script>
-        document.getElementById("voteForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let voter_id = document.getElementById("voter_id").value;
-            let vote = document.getElementById("vote").value;
-
-            fetch("/vote", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ voter_id, vote })
-            }).then(res => res.json())
-              .then(data => {
-                alert(data.message);
-                loadBlockchain();
-            });
-        });
-
-        function loadBlockchain() {
-            fetch("/get_chain")
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById("blockchain").innerText = JSON.stringify(data.chain, null, 2);
-                });
-        }
-
-        loadBlockchain();
-    </script>
+    <div class="register-link">
+        <a href="/register">Don't have an account? Register</a>
+    </div>
 </body>
 </html>
